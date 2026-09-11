@@ -7,7 +7,7 @@ import {
   STUDIO_WORKSPACE_STATE,
   studioStatePath,
   studioWorkspaceStatePath,
-} from '../../packages/studio-panel/src/shared/studio-state-path.mjs'
+} from '../../src/shared/studio-state-path.mjs'
 
 test('用户目录落点：<home>/.dsh/studio/state.json，DSH_STUDIO_STATE 可覆盖', () => {
   assert.equal(studioStatePath('C:/Users/x', undefined), 'C:/Users/x/.dsh/studio/state.json')
@@ -39,7 +39,7 @@ test('会话工作区落点：<cwd>/.dsh-studio/state.json，尾部斜杠同样�
  */
 test('客户端字面量与共享常量一致（漂移就会读不到状态文件）', () => {
   const client = readFileSync(
-    new URL('../../packages/studio-panel/src/client/index.mjs', import.meta.url),
+    new URL('../../src/client/index.mjs', import.meta.url),
     'utf8',
   )
   const found = client.match(/const WORKSPACE_STATE_PATH = '([^']+)'/)
@@ -47,7 +47,7 @@ test('客户端字面量与共享常量一致（漂移就会读不到状态文�
   assert.equal(found[1], STUDIO_WORKSPACE_STATE)
 
   // 宿主必须走共享函数，不许自己拼字符串
-  const host = readFileSync(new URL('../../packages/studio-panel/src/host.mjs', import.meta.url), 'utf8')
+  const host = readFileSync(new URL('../../src/host.mjs', import.meta.url), 'utf8')
   assert.ok(host.includes('studioWorkspaceStatePath'), '宿主应使用 studioWorkspaceStatePath 计算副本路径')
   assert.ok(!/['"]\.dsh-studio/.test(host), '宿主不应硬编码工作区状态目录')
 })

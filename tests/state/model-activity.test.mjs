@@ -23,7 +23,7 @@ import {
   assistantTextOf,
   harvestDeliveries,
   seedDeliveries,
-} from '../../packages/studio-panel/src/shared/model-activity.mjs'
+} from '../../src/shared/model-activity.mjs'
 
 test('实时增量块把阶段依次推成 思考 → 编写 → 派活', () => {
   const activity = createModelActivity()

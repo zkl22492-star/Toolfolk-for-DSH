@@ -1,10 +1,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { createEmployeeResolver } from '../../packages/studio-panel/src/shared/employee-resolver.mjs'
+import { createEmployeeResolver } from '../../src/shared/employee-resolver.mjs'
 import { replayStudio } from '../../scripts/lib/replay.mjs'
 
-const catalog = JSON.parse(readFileSync(new URL('../../packages/studio-panel/src/shared/tool-package-map.json', import.meta.url)))
+const catalog = JSON.parse(readFileSync(new URL('../../src/shared/tool-package-map.json', import.meta.url)))
 const plugin = (entryId, name) => ({ entryId, moduleName: '@deepseek-ai/dsh-' + name })
 /** 员工身份 = 插件包名（moduleName），不是配置里的条目 id。 */
 const MOD = (name) => '@deepseek-ai/dsh-' + name

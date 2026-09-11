@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 
 (async () => {
   await build({
-    stdin: { contents: fs.readFileSync('packages/studio-panel/src/client/index.mjs', 'utf8').replace('return { ...diag,', 'return { cameraZoom: camera.zoom, cameraPosition: camera.position.toArray(), ...diag,') + '\nwindow.mountUnderTest = mountStudio; window.loadArtUnderTest = loadStudioArt;', resolveDir: require('node:path').resolve('packages/studio-panel/src/client') },
+    stdin: { contents: fs.readFileSync('src/client/index.mjs', 'utf8').replace('return { ...diag,', 'return { cameraZoom: camera.zoom, cameraPosition: camera.position.toArray(), ...diag,') + '\nwindow.mountUnderTest = mountStudio; window.loadArtUnderTest = loadStudioArt;', resolveDir: require('node:path').resolve('src/client') },
     bundle: true, format: 'iife', outfile: 'tmp/client-mount-test.js',
     plugins: [{ name: 'react-stub', setup(b) {
       b.onResolve({ filter: /^react$/ }, () => ({ path: 'react', namespace: 'stub' }));

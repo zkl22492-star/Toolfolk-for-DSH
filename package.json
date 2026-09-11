@@ -1,9 +1,48 @@
 {
-  "name": "dsh-studio-assets",
+  "name": "dsh-studio-panel",
   "version": "0.1.0",
-  "private": true,
   "license": "MIT",
   "type": "module",
+  "description": "DSH 3D AI 工作室：把插件与模型的调用过程可视化成 3D 办公室（六固定岗位 + 思维流气泡 + 交付纸）",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "3d",
+    "three",
+    "visualization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zkl22492-star/Toolfolk-for-DSH.git"
+  },
+  "homepage": "https://github.com/zkl22492-star/Toolfolk-for-DSH#readme",
+  "bugs": {
+    "url": "https://github.com/zkl22492-star/Toolfolk-for-DSH/issues"
+  },
+  "author": "浊客er",
+  "exports": {
+    ".": "./src/host.mjs",
+    "./client": "./lib/client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "files": [
+    "src/host.mjs",
+    "src/shared",
+    "src/client",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "assets/3d/v2/studio.glb",
+    "assets/art/studio-v1",
+    "THIRD-PARTY-NOTICES.md"
+  ],
   "scripts": {
     "assets:build": "node scripts/build-assets.mjs",
     "assets:verify": "node scripts/verify-assets.mjs",
@@ -12,10 +51,8 @@
     "test": "node --test tests/**/*.test.mjs",
     "state:replay": "node scripts/replay-state.mjs"
   },
-  "dependencies": {
-    "three": "0.180.0"
-  },
   "devDependencies": {
-    "esbuild": "^0.28.2"
+    "esbuild": "^0.28.2",
+    "three": "0.180.0"
   }
 }

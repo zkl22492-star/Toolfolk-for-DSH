@@ -20,7 +20,7 @@ import {
   outcomeOf,
   reduce,
   snapshot,
-} from '../../packages/studio-panel/src/shared/state-engine.mjs'
+} from '../../src/shared/state-engine.mjs'
 
 const S1 = 'session-aaa'
 const S2 = 'session-bbb'

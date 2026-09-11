@@ -23,10 +23,10 @@ import {
   normalizeToolNames,
   outcomePayload,
   STATION_COUNT,
-} from '../../packages/studio-panel/src/shared/studio-bridge-core.mjs'
-import { CONNECTION, UNASSIGNED_EMPLOYEE, createStudio, reduce } from '../../packages/studio-panel/src/shared/state-engine.mjs'
+} from '../../src/shared/studio-bridge-core.mjs'
+import { CONNECTION, UNASSIGNED_EMPLOYEE, createStudio, reduce } from '../../src/shared/state-engine.mjs'
 
-const catalog = JSON.parse(readFileSync(new URL('../../packages/studio-panel/src/shared/tool-package-map.json', import.meta.url)))
+const catalog = JSON.parse(readFileSync(new URL('../../src/shared/tool-package-map.json', import.meta.url)))
 
 const plugin = (entryId, name) => ({ entryId, moduleName: '@deepseek-ai/dsh-' + name })
 /** 员工身份 = 插件包名（moduleName）。 */

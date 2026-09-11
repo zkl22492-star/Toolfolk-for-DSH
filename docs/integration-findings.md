@@ -387,7 +387,7 @@ subagent_fork, read_image, pwsh
 
 ### 4.9 ✅ Web UI 挂载点：四个官方 slot 全部可用（INT-03 完成）
 
-**验证载体**：新建包 `packages/studio-panel/`（`package.json` + `src/host.mjs` + `lib/client.js` + `cordis.yml` 覆盖层）。
+**验证载体**：新建插件包（`package.json` + `src/host.mjs` + `lib/client.js` + 覆盖层；后已拍平到仓库根）。
 
 #### 4.9.1 客户端插件的完整契约（实测确认）
 
@@ -759,7 +759,7 @@ DSH_HOME="<独立家目录>" npx --yes @deepseek-ai/dsh@0.1.5-rc.1 \
 
 # 状态桥接 + 客户端（M3 开发）：打开带 token 的地址，切到「工作室」视图
 npx --yes @deepseek-ai/dsh@0.1.5-rc.1 \
-  --profile web --patch "L:/Toolfolk for DSH/packages/studio-panel/cordis.yml" --port 3081 --no-open
+  --profile web --patch "L:/Toolfolk for DSH/src/host/cordis.yml" --port 3081 --no-open
 ```
 
 > **Node 版本**：必须用托管版 Node 22（`C:\Users\LAI\.workbuddy\binaries\node\versions\22.22.2-2\node.exe`）。

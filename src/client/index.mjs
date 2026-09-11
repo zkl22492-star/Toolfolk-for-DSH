@@ -17,7 +17,7 @@
  *   这里经 `remote.workspaceFiles.readAll` 读回，按**会话**匹配后驱动各工位动画。
  *   为什么走 Remote 读文件而不是自建接口：官方 Gateway 的 Remote 名单是构建期固定的，
  *   手写插件无法在运行时注册新的 Remote 方法；`workspaceFiles` 是唯一两端通用（含桌面端）
- *   且 M1 已实测可用的通道。详见 src/shared/studio-state-path.mjs（包内 packages/studio-panel/src/shared/）。
+ *   且 M1 已实测可用的通道。详见 src/shared/studio-state-path.mjs（`src/shared/`，与宿主同一份）。
  *
  * 注册契约（reference/deepseek-harness @ c291e79）：
  *   ui-conversation/src/client/contract/slots.ts:156
@@ -75,7 +75,7 @@ const FADE_SECONDS = 0.35
 const STATION_COUNT = 6
 
 /**
- * 由构建脚本注入（packages/studio-panel/src/shared/studio-state-path.mjs 计算，宿主用同一个函数）。
+ * 由构建脚本注入（`src/shared/studio-state-path.mjs` 计算，宿主用同一个函数）。
  * **只作开发形态兜底**：这是打包那台机器的绝对路径，换机器/换账号必然指错。
  */
 /* global __STUDIO_STATE_PATH__ */

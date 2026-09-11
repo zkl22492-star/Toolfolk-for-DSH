@@ -18,7 +18,7 @@
 import { readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 
-import { studioStatePath } from '../../packages/studio-panel/src/shared/studio-state-path.mjs'
+import { studioStatePath } from '../shared/studio-state-path.mjs'
 
 export const name = 'bridge-selftest'
 export const inject = ['tools']

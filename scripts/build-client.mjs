@@ -1,9 +1,9 @@
 /**
  * 构建客户端 bundle：源码 → 官方要求的「闭包工厂」产物
  *
- *   packages/studio-panel/src/client/index.mjs
+ *   src/client/index.mjs
  *     ↓ esbuild（bundle 三方库、把平台模块留作 external）
- *   packages/studio-panel/lib/client.js
+ *   lib/client.js
  *
  * 产物格式（见 packages/client/tsdown.client.ts 头注释与
  * packages/client/modules/src/client/manifest.ts 的 ClientBundleRegistration）：
@@ -24,9 +24,9 @@ import { fileURLToPath } from 'node:url'
 const here = dirname(fileURLToPath(import.meta.url))
 const root = resolve(here, '..')
 
-const ENTRY = resolve(root, 'packages/studio-panel/src/client/index.mjs')
-const OUT = resolve(root, 'packages/studio-panel/lib/client.js')
-const PACKAGE_JSON = resolve(root, 'packages/studio-panel/package.json')
+const ENTRY = resolve(root, 'src/client/index.mjs')
+const OUT = resolve(root, 'lib/client.js')
+const PACKAGE_JSON = resolve(root, 'package.json')
 
 /**
  * 运行期路径**不再固化进产物**（注入 null）。

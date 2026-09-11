@@ -1,5 +1,5 @@
-import { createStudio, reduce, snapshot } from '../../packages/studio-panel/src/shared/state-engine.mjs'
-import { createEmployeeResolver } from '../../packages/studio-panel/src/shared/employee-resolver.mjs'
+import { createStudio, reduce, snapshot } from '../../src/shared/state-engine.mjs'
+import { createEmployeeResolver } from '../../src/shared/employee-resolver.mjs'
 
 /** Each replay starts from a fresh baseline; its clock is supplied by the fixture. */
 export function replayStudio({ catalog, plugins, tools, events, sessionId, now = 0 }) {

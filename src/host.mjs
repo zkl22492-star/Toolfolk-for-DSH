@@ -53,28 +53,27 @@ export const inject = ['tools']
 
 const PREFIX = '[studio-bridge]'
 const HERE = dirname(fileURLToPath(import.meta.url))
-/** 包根：`<包>/src/host.mjs` → `<包>`（资源与状态文件都按它推导，不依赖开发机绝对路径）。 */
+/**
+ * 包根 = 仓库根：`<包>/src/host.mjs` → `<包>`。
+ *
+ * 本仓库**自身就是一个插件包**（包清单在仓库根），所以开发形态与安装形态中
+ * 「包根」是同一个概念，资源路径不必分两套。资源随包分发（见 `files`），装到谁的机器上都成立。
+ */
 const PACKAGE_ROOT = resolve(HERE, '..')
-/** 开发形态下的仓库根（包在 `<repo>/packages/studio-panel`），仅作资源回退。 */
-const REPO_ROOT = resolve(PACKAGE_ROOT, '..', '..')
 /** DSH 家目录：状态文件落在这里，插件装进 profile 后包目录可能只读。 */
 const DSH_HOME = process.env.DSH_HOME && process.env.DSH_HOME.length > 0 ? process.env.DSH_HOME : homedir()
 const STATE_PATH = studioStatePath(DSH_HOME, process.env.DSH_STUDIO_STATE)
 
 /**
- * 资源位置：优先**包内**（发行形态），回退到仓库开发路径。
- * 客户端不再写死绝对路径——宿主把解析结果写进快照，客户端照着读，
- * 这样同一个 bundle 装在谁的机器上都能找到资源。
+ * 资源位置：包内固定两个路径（开发形态与安装形态一致）。
+ * 客户端不写死绝对路径——宿主把解析结果写进快照，客户端照着读。
  */
 function resolveAssets() {
-  const candidates = [
-    { glb: PACKAGE_ROOT + '/assets/studio.glb', art: PACKAGE_ROOT + '/assets/art' },
-    { glb: REPO_ROOT + '/assets/3d/v2/studio.glb', art: REPO_ROOT + '/assets/art/studio-v1' },
-  ]
-  for (const candidate of candidates) {
-    if (existsSync(candidate.glb)) return candidate
+  const candidate = {
+    glb: PACKAGE_ROOT + '/assets/3d/v2/studio.glb',
+    art: PACKAGE_ROOT + '/assets/art/studio-v1',
   }
-  return null
+  return existsSync(candidate.glb) ? candidate : null
 }
 const ASSETS = resolveAssets()
 

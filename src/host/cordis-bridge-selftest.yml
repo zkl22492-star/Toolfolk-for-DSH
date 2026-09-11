@@ -20,6 +20,6 @@
 
 - insert:
     - id: studio-bridge
-      name: 'L:/Toolfolk for DSH/packages/studio-panel/src/host.mjs'
+      name: 'L:/Toolfolk for DSH/src/host.mjs'
     - id: bridge-selftest
       name: 'L:/Toolfolk for DSH/src/host/bridge-selftest.mjs'

@@ -18,8 +18,8 @@ import {
   parseArguments,
   postIndexOfTool,
   shortenSubject,
-} from '../../packages/studio-panel/src/shared/studio-posts.mjs'
-import { createStudio, reduce } from '../../packages/studio-panel/src/shared/state-engine.mjs'
+} from '../../src/shared/studio-posts.mjs'
+import { createStudio, reduce } from '../../src/shared/state-engine.mjs'
 
 test('岗位固定为 6 个，且覆盖四类高频工具', () => {
   assert.equal(POST_DEFINITIONS.length, 6)

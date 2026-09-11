@@ -6,7 +6,7 @@
  *   2. 组合出的启动图（window.__DSH_BOOT__）里是否出现本包的行
  *   3. 该行的 bundle 路径与 `/plugins` combo URL 是否可解析
  *
- * 浏览器半侧（视图注册）在包内 `packages/studio-panel/src/client/`。
+ * 浏览器半侧（视图注册）在 `src/client/`。
  *
  * 契约来源（reference/deepseek-harness）：
  *   - docs/subsystems/client-modules.zh.md —— 扫描、bundle 路由、启动图

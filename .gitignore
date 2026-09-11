@@ -1,9 +1,6 @@
 node_modules/
 tmp/
 reference/
-packages/studio-panel/assets/
-packages/studio-panel/LICENSE
-packages/studio-panel/THIRD-PARTY-NOTICES.md
 *.tgz
 
 # 资产导出压缩包：对使用者无用（要 GLB，或自己 npm run assets:build 生成），

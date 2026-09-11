@@ -14,7 +14,7 @@
 ### three.js
 - 版本：`0.180.0`
 - 用途：3D 场景渲染、GLB 解析、动画、CSS2D 标签
-- 位置：`packages/studio-panel/lib/client.js`（内联；宿主平台模块表不含 three，必须自带）
+- 位置：`lib/client.js`（内联；宿主平台模块表不含 three，必须自带）
 - 许可：MIT
 
 ```
@@ -74,7 +74,7 @@ THE SOFTWARE.
 ## 本项目自身的许可
 
 **MIT** —— 全文见仓库根 [`LICENSE`](LICENSE)（`Copyright (c) 2026 浊客er`）。
-`packages/studio-panel/package.json` 与仓库根 `package.json` 的 `license` 字段均已标为 `MIT`。
+仓库根 `package.json` 的 `license` 字段均已标为 `MIT`。
 
 ## 发布前仍建议补齐
 

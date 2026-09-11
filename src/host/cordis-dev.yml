@@ -13,6 +13,6 @@
 
 - insert:
     - id: dsh-studio-panel
-      name: 'L:/Toolfolk for DSH/packages/studio-panel/src/host.mjs'
+      name: 'L:/Toolfolk for DSH/src/host.mjs'
     - id: studio-graph-check
       name: 'L:/Toolfolk for DSH/src/host/client-graph-check.mjs'
