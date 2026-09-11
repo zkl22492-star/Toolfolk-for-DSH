@@ -1,0 +1,15 @@
+# dsh-studio-panel · 组合包补丁（**随包分发**）
+#
+# 这是 `package.json` 里 `dsh.bundle.patch` 指向的文件：`dsh plugin add <本包>` 之后，
+# 这一层会叠进 profile，把本插件挂到宿主上。
+#
+# 只挂**一个**宿主插件：`dsh-studio-panel` 的宿主入口（状态桥接）。
+# 用**包名**引用（官方 bundle 同惯例）——`exports['.']` 指向 `./src/host.mjs`，
+# 由 profile 的 node_modules 解析，不含任何绝对路径。
+#
+# 开发期不要用这个文件：绝对路径挂载见仓库里的 `src/host/cordis-dev.yml`
+# （`--patch` 要求绝对路径，而包名在开发仓库里解析不到）。
+
+- insert:
+    - id: dsh-studio-panel
+      name: 'dsh-studio-panel'

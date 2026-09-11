@@ -1,0 +1,25 @@
+# studio-bridge 自检 · --patch 覆盖层（仅测试用）
+#
+# 用法（web profile，不必开浏览器；用独立端口 + 独立 home，避免打扰正在运行的宿主）：
+#   DSH_HOME="L:/Toolfolk for DSH/reference/dsh-home-probe" \
+#   npx --yes @deepseek-ai/dsh@0.1.5-rc.1 \
+#     --profile web --patch "L:/Toolfolk for DSH/src/host/cordis-bridge-selftest.yml" \
+#     --port 3082 --no-open
+#
+# **不要加 `--cache tmp/npm-cache`**：那会生成含重复副本的模块树，把 ~/.dsh 的 profile 带坏
+# （见 docs/integration-findings.md §5.6）。
+#
+# 驱动在启动约 3.5 秒后发起合成调用（成功/失败/取消/并发），然后：
+#   ① 读回宿主用户目录的状态快照逐项核对；
+#   ② 验证**会话工作区副本**（`.dsh-studio/state.json`）已写出；
+#   ③ 用**客户端同一个服务方法**（workspaceFiles.readAll）按**相对路径**读回，确认与①内容一致。
+# 打印 check / verdict 行。工作区根取会话 header.cwd，没有会话时回退 sandbox 工作区根
+# （= 启动宿主时所在目录），所以请在可丢弃的目录里启动。
+#
+# 日常开发请用 src/host/cordis-dev.yml，不要用本文件。
+
+- insert:
+    - id: studio-bridge
+      name: 'L:/Toolfolk for DSH/packages/studio-panel/src/host.mjs'
+    - id: bridge-selftest
+      name: 'L:/Toolfolk for DSH/src/host/bridge-selftest.mjs'

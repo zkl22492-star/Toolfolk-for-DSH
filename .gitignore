@@ -1,0 +1,15 @@
+node_modules/
+tmp/
+reference/
+packages/studio-panel/assets/
+packages/studio-panel/LICENSE
+packages/studio-panel/THIRD-PARTY-NOTICES.md
+*.tgz
+
+# 资产导出压缩包：对使用者无用（要 GLB，或自己 npm run assets:build 生成），
+# 且每个几 MB，不进版本库。
+assets/3d/*.zip
+
+# 插件在**会话工作区**里写的状态快照副本：客户端据此用相对路径找到宿主状态。
+# 纯派生数据，可随时删除。开发时工作区就是本仓库，所以这里也要忽略。
+.dsh-studio/

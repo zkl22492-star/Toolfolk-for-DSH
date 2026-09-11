@@ -1,0 +1,15 @@
+# M1 接入探针 · --patch 覆盖层
+#
+# 用法（在任意空目录下执行）：
+#   npx --yes @deepseek-ai/dsh@0.1.5-rc.1 web --no-open --port 3081 --patch "L:\Toolfolk for DSH\src\host\cordis.yml"
+#
+# 说明：
+#   这是一个 PATCH OVERLAY，不是完整的 cordis 配置树。它以兄弟补丁列表的形式
+#   叠加在 web profile（dsh-base + dsh-web-app）之上，因此不需要重复宿主已有的行。
+#
+#   插件路径必须使用绝对路径：patch 文件只贡献配置，不会改变 loader 解析模块路径
+#   时使用的 profile 目录。（官方教程 docs/user/develop/basic/index.zh.md 明确要求）
+
+- insert:
+    - id: studio-probe
+      name: 'L:/Toolfolk for DSH/src/host/studio-probe.mjs'

@@ -1,0 +1,21 @@
+{
+  "name": "dsh-studio-assets",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "assets:build": "node scripts/build-assets.mjs",
+    "assets:verify": "node scripts/verify-assets.mjs",
+    "preview": "node scripts/serve-preview.mjs",
+    "client:build": "node scripts/build-client.mjs",
+    "test": "node --test tests/**/*.test.mjs",
+    "state:replay": "node scripts/replay-state.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

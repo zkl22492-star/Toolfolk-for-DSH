@@ -1,0 +1,13 @@
+# 统一换行：仓库内以 LF 存储，检出时按平台原生（Windows 得到 CRLF）
+* text=auto
+
+# 二进制：不做行尾转换，也不当文本 diff（GLB/贴图/压缩包）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.glb binary
+*.gltf binary
+*.zip binary
+*.tgz binary
+*.zstd binary

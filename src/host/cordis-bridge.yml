@@ -1,0 +1,15 @@
+# studio-bridge · 仅宿主侧的 --patch 覆盖层
+#
+# 用途：在 **headless** profile 下验证状态桥接——不需要浏览器、不需要 Web GUI 栈，
+# 因此只挂 studio-bridge（它只 inject ['tools']），不挂声明了 dsh.client 的面板宿主半侧。
+#
+# 用法（一次性任务驱动真实调用）：
+#   npx --yes @deepseek-ai/dsh@0.1.5-rc.1 --profile headless \
+#     --patch "L:/Toolfolk for DSH/src/host/cordis-bridge.yml" "read package.json"
+#
+# 然后检查状态快照：
+#   L:/Toolfolk for DSH/tmp/studio-state.json
+
+- insert:
+    - id: studio-bridge
+      name: 'L:/Toolfolk for DSH/packages/studio-panel/src/host.mjs'

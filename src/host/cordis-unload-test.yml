@@ -1,0 +1,18 @@
+# 卸载清理验证 · --patch 覆盖层（仅测试用）
+#
+# 用法：
+#   npx --yes @deepseek-ai/dsh@0.1.5-rc.1 --profile headless \
+#     --patch "L:/Toolfolk for DSH/src/host/cordis-unload-test.yml" "<任意任务>"
+#
+# 说明：
+#   在 studio-probe 之外额外挂载 probe-unload-test（测试驱动）。驱动会在启动
+#   约 2.5 秒后执行「合成调用 → 卸载 studio-probe 的 fiber → 再合成调用」，
+#   据此判定监听器是否随卸载释放。
+#
+#   日常开发请用 cordis.yml，不要用本文件。
+
+- insert:
+    - id: studio-probe
+      name: 'L:/Toolfolk for DSH/src/host/studio-probe.mjs'
+    - id: probe-unload-test
+      name: 'L:/Toolfolk for DSH/src/host/probe-unload-test.mjs'

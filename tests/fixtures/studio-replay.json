@@ -1,0 +1,11 @@
+{
+  "sessionId": "demo-session",
+  "plugins": [{ "entryId": "files", "moduleName": "@deepseek-ai/dsh-tool-fs" }],
+  "tools": ["read", "write"],
+  "events": [
+    { "type": "connection", "status": "connected", "at": 1000 },
+    { "type": "call-started", "callId": "read-1", "sessionId": "demo-session", "toolName": "read", "at": 1100 },
+    { "type": "call-started", "callId": "write-1", "sessionId": "demo-session", "toolName": "write", "at": 1200 },
+    { "type": "call-finished", "callId": "read-1", "isError": false, "at": 1300 }
+  ]
+}

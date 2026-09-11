@@ -1,0 +1,18 @@
+# 取消行为验证 · --patch 覆盖层（仅测试用）
+#
+# 用法：
+#   npx --yes @deepseek-ai/dsh@0.1.5-rc.1 --profile headless \
+#     --patch "L:/Toolfolk for DSH/src/host/cordis-cancel-test.yml" "<任意任务>"
+#
+# 说明：
+#   在 studio-probe 之外挂载 probe-cancel-test。驱动会在启动约 2.5 秒后依次执行：
+#     场景 A  用已中止的信号发起调用（预期 ABORTED_BEFORE_DISPATCH，包装层不参与）
+#     场景 B  发起长任务后中途 abort（预期 ABORTED，并测量取消后还要等多久）
+#
+#   日常开发请用 cordis.yml，不要用本文件。
+
+- insert:
+    - id: studio-probe
+      name: 'L:/Toolfolk for DSH/src/host/studio-probe.mjs'
+    - id: probe-cancel-test
+      name: 'L:/Toolfolk for DSH/src/host/probe-cancel-test.mjs'
