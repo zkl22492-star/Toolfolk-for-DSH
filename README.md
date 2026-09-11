@@ -14,31 +14,36 @@
 
 **前置**：官方宿主 `@deepseek-ai/dsh@0.1.5-rc.1`（宿主 React 18.3.1）。已经装过 DSH 就不用再装。
 
+多数人是用 `npx @deepseek-ai/dsh web` 启动 DSH 的，那就用**同样的形式**装插件：
+
 ```bash
 # 1) 装插件：一条命令，不需要任何授权（包里没有安装期脚本）
-dsh plugin --profile web add github:zkl22492-star/Toolfolk-for-DSH
+npx @deepseek-ai/dsh plugin --profile web add github:zkl22492-star/Toolfolk-for-DSH
 
-# 2) 启动
-dsh --profile web --port 3081 --no-open
+# 2) 启动（就是你平时那条命令）
+npx @deepseek-ai/dsh web --no-open
 ```
 
-没装全局 `dsh` 的话，把命令里的 `dsh` 换成 `npx --yes @deepseek-ai/dsh@0.1.5-rc.1`。
+全局装过 `dsh` 的（`npm i -g @deepseek-ai/dsh`），把命令里的 `npx @deepseek-ai/dsh` 换成 `dsh` 即可，其余一字不差。
+
+> `dsh web` 与 `npx @deepseek-ai/dsh web` 是 `--profile web` 的**硬编码别名**，所以插件命令里的 `--profile web` 指的就是同一个 profile。
+> `npx` 若提示确认，加 `-y`：`npx -y @deepseek-ai/dsh plugin --profile web add …`。
 
 然后用启动输出里带 `?token=` 的**完整地址**打开，
 在视图切换器的「对话 / 轨迹」旁边切到 **「3D 工作室」**（标签就叫这个名，便于第一次找到）。
 
 > 首次打开可能是空房间：**Web profile 下工具插件要等会话的 agent 启动才加载**——在对话里发一条消息，员工就上岗了。
 
-**卸载**：`dsh plugin --profile web remove dsh-studio-panel`
+**卸载**：`npx @deepseek-ai/dsh plugin --profile web remove dsh-studio-panel`（全局安装版把前缀换成 `dsh`）
 
 ### 其它安装方式
 
-| 方式 | 命令 | 是否需要授权执行作者代码 |
+| 方式 | 命令（npx 形式；全局安装版把 `npx @deepseek-ai/dsh` 换成 `dsh`） | 是否需要授权执行作者代码 |
 |---|---|---|
-| **git 一条命令**（上面那种，推荐） | `dsh plugin --profile web add github:zkl22492-star/Toolfolk-for-DSH` | **否**（包里没有 `prepare` 等安装期脚本，pnpm 不会拦） |
-| 下载附件（适合网络不稳 / 离线） | 下载 [dsh-studio-panel-0.1.0.tgz](https://github.com/zkl22492-star/Toolfolk-for-DSH/releases/download/v0.1.0/dsh-studio-panel-0.1.0.tgz) 后在下载目录执行 `dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz` | 否 |
-| npm（尚未发布） | `dsh plugin --profile web add dsh-studio-panel` | 否 |
-| 锁定版本（可复现） | `dsh plugin --profile web add "github:zkl22492-star/Toolfolk-for-DSH#<commit>"` | 否 |
+| **git 一条命令**（上面那种，推荐） | `npx @deepseek-ai/dsh plugin --profile web add github:zkl22492-star/Toolfolk-for-DSH` | **否**（包里没有 `prepare` 等安装期脚本，pnpm 不会拦） |
+| 下载附件（适合网络不稳 / 离线） | 下载 [dsh-studio-panel-0.1.0.tgz](https://github.com/zkl22492-star/Toolfolk-for-DSH/releases/download/v0.1.0/dsh-studio-panel-0.1.0.tgz)，在下载目录执行 `npx @deepseek-ai/dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz` | 否 |
+| npm（尚未发布） | `npx @deepseek-ai/dsh plugin --profile web add dsh-studio-panel` | 否 |
+| 锁定版本（可复现） | `npx @deepseek-ai/dsh plugin --profile web add "github:zkl22492-star/Toolfolk-for-DSH#<commit>"` | 否 |
 
 ### 安装注意
 
