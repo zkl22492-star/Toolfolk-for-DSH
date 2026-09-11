@@ -1,8 +1,27 @@
 # dsh-studio-panel · DSH 3D AI 工作室
 
-把 DSH 的插件与模型调用过程**可视化成 3D 办公室**的官方插件包：插件 = 员工、工位 = 岗位、调用 = 任务。
+把 DSH 的插件与模型调用过程**可视化成 3D 办公室**的插件包：**插件 = 员工、工位 = 岗位、调用 = 任务**。
 
-装上之后，在会话的视图切换器里会多出第三个选项：**对话 / 轨迹 / 3D 工作室**。
+装上之后，会话的视图切换器里会多出第三个选项：**对话 / 轨迹 / 3D 工作室**。
+
+## 安装
+
+**前置**：官方宿主 `@deepseek-ai/dsh@0.1.5-rc.1`（宿主 React 18.3.1）。
+
+```bash
+# 1) 在本包所在目录执行（tarball / 解包目录都可以）
+dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz
+
+# 2) 启动宿主
+dsh --profile web --port 3081 --no-open
+
+# 3) 用启动输出里带 ?token= 的完整地址打开，在「对话 / 轨迹」旁切到「3D 工作室」
+```
+
+- 没装全局 `dsh`：把上面的 `dsh` 换成 `npx --yes @deepseek-ai/dsh@0.1.5-rc.1`。
+- **卸载**：`dsh plugin --profile web remove dsh-studio-panel`。
+- ⚠️ **安装路径不要含空格**——`dsh plugin add` 会把路径按空格切开（实测 `L:/Toolfolk for DSH/…` 被截成 `L:/Toolfolk`）。在包所在目录用相对路径最稳。
+- 首次打开可能是空房间：**Web profile 下工具插件要等会话的 agent 启动才加载**，在对话里发一条消息，员工就上岗了。
 
 ## 它显示什么
 
@@ -13,20 +32,6 @@
 - **员工日志 / 汇报记录**：左下角按时间记录调用事件；右上角可展开历史回答（含安装前的历史，从会话日志回填）。
 - **明暗主题**：跟随宿主主题。
 
-## 安装
-
-需要宿主为官方发行版 `@deepseek-ai/dsh@0.1.5-rc.1`（宿主 React 18.3.1）。
-
-```bash
-dsh plugin --profile web add <本包路径或 tarball 或 git 地址>
-dsh --profile web --port 3081 --no-open
-```
-
-> 安装路径**不要含空格**（`dsh plugin add` 会把路径按空格切开）：`cd` 到包所在目录用相对路径最稳，
-> 例如 `dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz`。
-
-启动后按输出里带 `?token=` 的完整地址打开，在「对话 / 轨迹」旁切到「3D 工作室」。
-
 ## 数据与隐私
 
 - 插件**只读**宿主事件（`tools/execute`、`tools/result`、`session/event`、`agent/assistant-stream`），
@@ -36,6 +41,11 @@ dsh --profile web --port 3081 --no-open
 - 为了让浏览器端在**任何机器**上都能找到这个快照，宿主还会往**当前会话的工作区**写一份
   `.dsh-studio/state.json`（纯派生数据，可随时删除；建议加进你项目的 `.gitignore`）。
 
+## 兼容
+
+- 宿主 `@deepseek-ai/dsh@0.1.5-rc.1`（React 18.3.1）。
+- 已在 Windows + Web profile 实测；**桌面端未验证**。
+
 ## 许可
 
-MIT，见 [LICENSE](LICENSE)。第三方声明（含内联的 three.js）见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
+MIT，见 [LICENSE](LICENSE)。第三方声明（含内联的 three.js，MIT）见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。
