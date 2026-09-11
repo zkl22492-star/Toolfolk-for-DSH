@@ -14,7 +14,21 @@
 
 **前置**：官方宿主 `@deepseek-ai/dsh@0.1.5-rc.1`（宿主 React 18.3.1）。已经装过 DSH 就不用再装。
 
-**第 1 步 · 装插件**（到本仓库的 **Releases** 页面下载 `dsh-studio-panel-0.1.0.tgz`，在它所在目录执行）：
+### 1. 下载插件包（点一下就行，不用找 Releases 页面）
+
+### 👉 **[点这里下载 dsh-studio-panel-0.1.0.tgz](https://github.com/zkl22492-star/Toolfolk-for-DSH/releases/download/v0.1.0/dsh-studio-panel-0.1.0.tgz)**（15 MB）
+
+文件会进你的**下载**文件夹。
+
+### 2. 打开终端，执行一条命令
+
+在**下载文件夹**里打开终端：
+
+- **Windows**：在文件资源管理器的**地址栏**输入 `cmd` 回车（就打开在下载目录了）
+- **macOS**：右键下载文件夹 → 服务 → 新建位于文件夹位置的终端窗口
+- **Linux**：在下载目录右键「在终端中打开」
+
+然后复制粘贴这一条：
 
 ```bash
 dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz
@@ -26,26 +40,29 @@ dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz
 npx --yes @deepseek-ai/dsh@0.1.5-rc.1 plugin --profile web add ./dsh-studio-panel-0.1.0.tgz
 ```
 
-**第 2 步 · 启动宿主**：
+### 3. 启动并打开工作室
 
 ```bash
 dsh --profile web --port 3081 --no-open
 ```
 
-**第 3 步 · 打开工作室**：用启动输出里带 `?token=` 的**完整地址**打开，
+用启动输出里带 `?token=` 的**完整地址**打开，
 在视图切换器的「对话 / 轨迹」旁边切到 **「3D 工作室」**（标签就叫这个名，便于第一次找到）。
 
 > 首次打开可能是空房间：**Web profile 下工具插件要等会话的 agent 启动才加载**——在对话里发一条消息，员工就上岗了。
 
 **卸载**：`dsh plugin --profile web remove dsh-studio-panel`
 
-### 安装方式对比
+> 安装路径**不要含空格**：`dsh plugin add` 会把路径按空格切开（实测 `L:/Toolfolk for DSH/…` 会被截成 `L:/Toolfolk`）。
+> 在下载目录用上面那条**相对路径** `./文件名` 最稳。
+
+### 其它安装方式
 
 | 方式 | 命令 | 是否需要授权执行作者代码 |
 |---|---|---|
-| **tarball / Release 附件**（推荐，零授权零构建） | `dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz` | 否 |
-| git 子目录（能跟源码） | `dsh plugin --profile web add "owner/repo#<sha>&path:/packages/studio-panel"` | **是**：pnpm ≥10 会先拦住，需按提示把 `allowBuilds: dsh-studio-panel: true` 写进该 profile 的 `pnpm-workspace.yaml`。建议锁 commit |
-| npm | `dsh plugin --profile web add dsh-studio-panel` | 否（**尚未发布**） |
+| **下载附件**（上面那种，推荐） | `dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz` | 否 |
+| git 一条命令（能跟源码） | `dsh plugin --profile web add "github:zkl22492-star/Toolfolk-for-DSH#path:/packages/studio-panel"` | **是**：pnpm ≥10 会先拦住，需按提示把 `allowBuilds: dsh-studio-panel: true` 写进该 profile 的 `pnpm-workspace.yaml`，再跑一次。建议锁 commit（`#<sha>&path:…`） |
+| npm（尚未发布） | `dsh plugin --profile web add dsh-studio-panel` | 否 |
 
 ### 安装注意
 
