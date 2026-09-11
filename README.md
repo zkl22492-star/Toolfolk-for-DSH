@@ -34,15 +34,15 @@ npx @deepseek-ai/dsh web --no-open
 
 > 首次打开可能是空房间：**Web profile 下工具插件要等会话的 agent 启动才加载**——在对话里发一条消息，员工就上岗了。
 
-**卸载**：`npx @deepseek-ai/dsh plugin --profile web remove dsh-studio-panel`（全局安装版把前缀换成 `dsh`）
+**卸载**：`npx @deepseek-ai/dsh plugin --profile web remove toolfolk-for-dsh`（全局安装版把前缀换成 `dsh`）
 
 ### 其它安装方式
 
 | 方式 | 命令（npx 形式；全局安装版把 `npx @deepseek-ai/dsh` 换成 `dsh`） | 是否需要授权执行作者代码 |
 |---|---|---|
 | **git 一条命令**（上面那种，推荐） | `npx @deepseek-ai/dsh plugin --profile web add github:zkl22492-star/Toolfolk-for-DSH` | **否**（包里没有 `prepare` 等安装期脚本，pnpm 不会拦） |
-| 下载附件（适合网络不稳 / 离线） | 下载 [dsh-studio-panel-0.1.0.tgz](https://github.com/zkl22492-star/Toolfolk-for-DSH/releases/download/v0.1.0/dsh-studio-panel-0.1.0.tgz)，在下载目录执行 `npx @deepseek-ai/dsh plugin --profile web add ./dsh-studio-panel-0.1.0.tgz` | 否 |
-| npm（尚未发布） | `npx @deepseek-ai/dsh plugin --profile web add dsh-studio-panel` | 否 |
+| 下载附件（适合网络不稳 / 离线） | 下载 [toolfolk-for-dsh-0.1.0.tgz](https://github.com/zkl22492-star/Toolfolk-for-DSH/releases/download/v0.1.0/toolfolk-for-dsh-0.1.0.tgz)，在下载目录执行 `npx @deepseek-ai/dsh plugin --profile web add ./toolfolk-for-dsh-0.1.0.tgz` | 否 |
+| npm（尚未发布） | `npx @deepseek-ai/dsh plugin --profile web add toolfolk-for-dsh` | 否 |
 | 锁定版本（可复现） | `npx @deepseek-ai/dsh plugin --profile web add "github:zkl22492-star/Toolfolk-for-DSH#<commit>"` | 否 |
 
 ### 安装注意
@@ -166,7 +166,7 @@ tools/execute + tools/result + session/event + agent/assistant-stream
 
 ```bash
 npm pack                # 在仓库根打包；files 决定内容，无需任何复制脚本
-# → dsh-studio-panel-0.1.0.tgz（15.2 MB / 24 个文件）
+# → toolfolk-for-dsh-0.1.0.tgz（15.2 MB / 24 个文件）
 ```
 
 **包内容**：`src/host.mjs` + `src/shared/**` + `src/client/index.mjs`、`lib/client.js`（含内联 three）、

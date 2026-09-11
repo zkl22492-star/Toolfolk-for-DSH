@@ -1,5 +1,5 @@
 /**
- * dsh-studio-panel · 客户端图自检（开发用，**不进分发包**）
+ * toolfolk-for-dsh · 客户端图自检（开发用，**不进分发包**）
  *
  * 职责：验证「官方 UI 扩展入口」这条链路的**宿主部分**——
  *   1. 宿主是否扫描到本包的 `dsh.client` 声明
@@ -13,13 +13,13 @@
  *   - packages/client/modules/README.zh.md —— dsh.client 声明与构建要求
  */
 
-export const name = 'dsh-studio-panel-graph-check'
+export const name = 'toolfolk-for-dsh-graph-check'
 
 /** clientModules = ctx.clientModules（ClientModuleRegistry，扫描与启动图服务） */
 export const inject = ['clientModules']
 
 const PREFIX = '[studio-panel]'
-const PACKAGE_NAME = 'dsh-studio-panel'
+const PACKAGE_NAME = 'toolfolk-for-dsh'
 
 export function apply(ctx) {
   function log(kind, payload) {

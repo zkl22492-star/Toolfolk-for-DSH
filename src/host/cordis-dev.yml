@@ -8,11 +8,11 @@
 # node_modules 解析；开发仓库里没有装这个包，解析不到，所以开发期必须用绝对路径。
 #
 # 两行：
-#   dsh-studio-panel  —— 包的宿主入口（状态桥接，发行时也是它）
+#   toolfolk-for-dsh  —— 包的宿主入口（状态桥接，发行时也是它）
 #   studio-graph-check—— 仅开发用：打印客户端启动图，确认 bundle 行被编入
 
 - insert:
-    - id: dsh-studio-panel
+    - id: toolfolk-for-dsh
       name: 'L:/Toolfolk for DSH/src/host.mjs'
     - id: studio-graph-check
       name: 'L:/Toolfolk for DSH/src/host/client-graph-check.mjs'

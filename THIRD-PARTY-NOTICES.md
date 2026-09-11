@@ -1,6 +1,6 @@
 # 第三方声明 / Third-Party Notices
 
-本文件列出 **dsh-studio-panel（DSH 3D AI 工作室）** 分发物中包含或依赖的第三方软件及其许可。
+本文件列出 **toolfolk-for-dsh（DSH 3D AI 工作室）** 分发物中包含或依赖的第三方软件及其许可。
 分发（打包、拷贝给他人、发布到 registry）时**必须随包附带本文件**。
 
 > 说明：为什么需要它 —— 我们把自己的客户端 bundle 做成了单文件（`lib/client.js`），

@@ -394,7 +394,7 @@ subagent_fork, read_image, pwsh
 | 环节 | 要求 | 实测 |
 |---|---|---|
 | 声明 | `package.json` 声明 `dsh.client`（`platform: 'web'`），`exports['./client']` 指向**已构建**的 bundle | ✅ |
-| 扫描 | 宿主扫描 Loader 条目，由**最近归属的 package manifest** 提供浏览器模块 id | ✅ 行 id = **包名** `dsh-studio-panel` |
+| 扫描 | 宿主扫描 Loader 条目，由**最近归属的 package manifest** 提供浏览器模块 id | ✅ 行 id = **包名** `toolfolk-for-dsh` |
 | bundle 格式 | **闭包工厂**：`window.__ModuleLoader__.load({ id, factory })`，`factory(require)` 返回导出 | ✅ |
 | 依赖 | 外部依赖经注入的 require 解析；外壳提供冻结的 `PLATFORM_MODULES` | ✅ **React 实测 v18.3.1** |
 | 注册 | 与宿主插件同形：`inject` + `apply(ctx)`，用 `ctx.slots.inject` / `ctx.slots.register` | ✅ `apply()` 被官方 Cordis 调用 |

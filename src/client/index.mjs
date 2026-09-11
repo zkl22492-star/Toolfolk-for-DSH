@@ -1,5 +1,5 @@
 /**
- * dsh-studio-panel · 浏览器半侧源码
+ * toolfolk-for-dsh · 浏览器半侧源码
  *
  * 形态：在会话的视图切换器里增加第三个选项 —— **对话 / 轨迹 / 3D 工作室**。
  * （标签就叫「3D 工作室」：用户第一次进来不知道它是什么、在哪，名字里带 3D 更容易被找到。）
@@ -38,12 +38,12 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { CSS2DObject, CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer.js'
 
-export const name = 'dsh-studio-panel'
+export const name = 'toolfolk-for-dsh'
 
 /** remote.workspaceFiles 是嵌套服务名，必须整体声明。 */
 export const inject = ['slots', 'remote', 'remote.workspaceFiles', 'sessions']
 
-const PACKAGE_NAME = 'dsh-studio-panel'
+const PACKAGE_NAME = 'toolfolk-for-dsh'
 const VIEW_ID = 'studio'
 /** 排在「轨迹」（order 10）之后。 */
 const VIEW_ORDER = 20
