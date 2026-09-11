@@ -4,7 +4,9 @@
 
 六名员工各有固定岗位，谁在干活、在干什么、为什么这么干、最后交付了什么，一眼看得见。
 
-![工作室预览](docs/assets/studio-assets-preview-v2.png)
+**实机画面**（暗色主题 · 真实调用驱动 · 六名员工各就各位）：
+
+![DSH 3D AI 工作室 · 实机](docs/assets/studio-live-room.png)
 
 ---
 
@@ -66,6 +68,10 @@ dsh --profile web --port 3081 --no-open
 | **汇报记录** | 右上角，**默认收起**；点开展开全部历史回答，**含插件启动前就存在的历史**（从会话完整日志回填） |
 | **明暗主题** | 跟随宿主 `body[data-ds-dark-theme]`，颜色变量单一来源 |
 | **总控台机器人** | 中央总控台上的 `Coordinator` 即模型本人，按阶段做程序化动作 |
+
+员工干活时头顶冒泡，气泡第二行就是**这次任务对应的模型推理原文**（实机截图中两个工位正在同时干活）：
+
+![思维流气泡：正在联网调查 / 正在运行命令](docs/assets/studio-live-bubbles.png)
 
 更多截图见 [`docs/assets/`](docs/assets)。
 
