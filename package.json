@@ -10,7 +10,9 @@
     "plugin",
     "3d",
     "three",
-    "visualization"
+    "visualization",
+    "dsh-plugin",
+    "threejs"
   ],
   "repository": {
     "type": "git",
