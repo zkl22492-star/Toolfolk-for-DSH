@@ -100,7 +100,7 @@ npx --yes @deepseek-ai/dsh@0.1.5-rc.1 \
 > 环境约束：宿主 React 为 **18.3.1**，3D 依赖必须按此匹配；改客户端 bundle 由 HMR 自动重载，**无需重启宿主**；
 > 改 `src/host/*` 或 `src/shared/*`（宿主侧）**必须重启宿主**（token 会变）。
 
-## 安装给别人（打包形态）
+## 安装
 
 ```bash
 # 在 packages/studio-panel 下打包（prepack 会自动把 LICENSE / 声明 / 资源复制进包）
