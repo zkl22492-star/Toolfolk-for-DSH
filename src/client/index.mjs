@@ -1333,6 +1333,8 @@ function mountStudio(host, glbBuffer, onStatus, onSelect, artTextures = {}) {
     /** 渲染侧诊断快照，供文字面板显示（本环境无法截图）。 */
     getDiagnostics() {
       diag.bubbleTexts = [...bubbleTexts]
+      diag.coordinatorFound = coordinator !== null
+      diag.coordinatorBubbleText = coordinatorBubble?.lastText ?? ''
       diag.canvas = {
         cssW: host.clientWidth,
         cssH: host.clientHeight,
@@ -2407,6 +2409,11 @@ function formatDiagnostics(diag) {
   if (Array.isArray(diag.bubbleTexts)) {
     const shown = diag.bubbleTexts.map((text, index) => `${index}:${text === '' ? '—' : text}`).join(' | ')
     lines.push('气泡文字：' + shown)
+  }
+  if (typeof diag.coordinatorFound === 'boolean') {
+    lines.push(diag.coordinatorFound
+      ? '总控台机器人：已绑定 · 气泡：' + (diag.coordinatorBubbleText || '—')
+      : '总控台机器人：模型缺少 Coordinator 节点，请更新 3D 资产')
   }
   if (diag.note !== null) lines.push('说明：' + diag.note)
   return lines.join('\n')

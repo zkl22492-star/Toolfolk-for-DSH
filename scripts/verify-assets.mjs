@@ -29,6 +29,12 @@ for(const item of manifest.assets){
   delete json.images;delete json.textures;delete json.samplers;
   json.buffers[0].uri='data:application/octet-stream;base64,'+bin.toString('base64');
   const gltf=await new GLTFLoader().parseAsync(JSON.stringify(json),'');
+  if(version==='v2'&&(item.name==='studio'||item.name==='console')){
+    const robots=[];gltf.scene.traverse(o=>{if(o.name==='Coordinator')robots.push(o);});
+    assert.equal(robots.length,1,item.name+' must retain one Coordinator node for animation and speech bubbles');
+    assert(!robots[0].isMesh,'Coordinator must remain a separately movable group');
+    assert(!new Box3().setFromObject(robots[0]).isEmpty(),'Coordinator must own visible robot geometry');
+  }
   let meshes=0,triangles=0;
   gltf.scene.traverse(o=>{
     if(!o.isMesh)return;
