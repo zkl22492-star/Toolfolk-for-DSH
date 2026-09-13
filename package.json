@@ -25,7 +25,8 @@
   "author": "浊客er",
   "exports": {
     ".": "./src/host.mjs",
-    "./client": "./lib/client.js"
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
   },
   "dsh": {
     "bundle": {
